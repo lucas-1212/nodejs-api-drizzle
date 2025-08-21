@@ -1,3 +1,4 @@
+
 GET http://localhost:3333/courses
 
 ###
@@ -10,7 +11,7 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-    "title": "q"
+    "title": "aaadoleta"
 }
 
 ###
@@ -35,3 +36,5 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:3333/courses/74a8219a-42be-405f-9898-382d593dc2a9
+
+

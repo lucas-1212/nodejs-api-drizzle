@@ -1,8 +1,8 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
 
-import { courses } from "../src/database/schema.ts";
-import { db } from "../src/database/clients.ts";
+import { courses } from "../database/schema.ts";
+import { db } from "../database/clients.ts";
 
 export const createCourseRoute: FastifyPluginAsyncZod = async (server) => {
   server.post(
@@ -17,7 +17,7 @@ export const createCourseRoute: FastifyPluginAsyncZod = async (server) => {
         }),
         response: {
             201: z.object({
-                course: z.uuid(),
+                courseId: z.uuid(),
             }).describe("Curso criado com sucesso"),
         }
       },
@@ -32,7 +32,7 @@ export const createCourseRoute: FastifyPluginAsyncZod = async (server) => {
         })
         .returning();
 
-      return reply.status(201).send({ course: result[0].id });
+      return reply.status(201).send({ courseId: result[0].id });
     }
   );
 };
